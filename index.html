@@ -13,10 +13,14 @@
         and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
         to download app from app store.
      -->
+	<input id="user" value=""> 
     <script>
     window.onload = function() {
     <!-- Deep link URL for existing users with app already installed on their device -->
-        window.location = 'app://discardo.de';
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var code = url.searchParams.get("code");
+        window.location = 'app://discardo.de' + code;
     }
     </script>
 </head>
